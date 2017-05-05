@@ -1,0 +1,21 @@
+Money Tracker, program za kontrolu troskova..
+
+Kako pokrenuti program:
+.. Morate imati instaliran modul MATPLOTLIB.. Njega cete instalirati tako sto pokrenete CMD,
+zatim kucate u konzolu pip install matplotlib
+.. Morate ucitati sql fajl u bazu. (to valjda znate)
+.. I naravno slicice moraju biti u istom folderu u kojem je i .py fajl.
+
+
+
+Kako koristiti program:
+Na dnu se nalaze 2 button-a (+) i (-), oni sluze za unos troskova ili prihoda.
+Kada kliknete na neki od button-a, prelazite u novi prozor za unos gdje birate kategorije 
+i unosite iznose trskova ili prihoda..
+
+Na sredini imate pie chartove za pregled statistike troskova ili prihoda, zavisno koji je TAB otvoren.
+Ispod chartova nalaze se informacije o BALANSU i VALUTI.
+
+I na kraju u FILE MENU-ju imate opciju da izaberete valutu u kojoj cete raditi, koja konvertuje 
+trenutni balans u valutu koju ste odabrali.. I Vremenski raspon, koji filtrira podatke iz baze,
+za raspon koji odaberete. 
