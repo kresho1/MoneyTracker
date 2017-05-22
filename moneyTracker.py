@@ -16,17 +16,8 @@ import time
 import psutil
 import os
 
-def xampp_check():
-    if "xampp-control.exe" in (p.name() for p in psutil.process_iter()):
-        pass
-        
-    else:
-        os.system('C:\\Users\\kreso\Desktop\\Moji Py Programi\\MoneyTracker\\moneyTracker.py')
-        os.system('C:\\xampp\\xampp-control.exe')
         
         
-    
-xampp_check()
 ENTRY_FONT = ("Consolas", 8, 'bold')
 NAS_FONT = ("Consolas", 15)
 LARGE_FONT = ("Consolas", 13)
@@ -44,6 +35,7 @@ raspon = 'month'
 fig1, ax1 = plt.subplots()
 fig1.set_facecolor('#424D59')
 fig1.set_size_inches(3.7, 3.7)
+
 def animateR(interval):
     global raspon
     if raspon == 'day':
@@ -161,14 +153,14 @@ class MainWindow(Toplevel):
 
         for F in (
                 PageOne, PageTwo,
-                PageThree, LoginPage):  # glavni dio... ovdje se ubacuju stranice... samo dodas naziv klase u kojoj si..
+                PageThree):  # glavni dio... ovdje se ubacuju stranice... samo dodas naziv klase u kojoj si..
             # ..kreirao glavni prozor
             frame = F(container, self)
 
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame(LoginPage)
+        self.show_frame(PageOne)
 
     def show_frame(self, cont):
         frame = self.frames[cont]
@@ -179,8 +171,7 @@ class MainWindow(Toplevel):
             self.geometry("358x200+600+250")
         elif cont == PageThree:
             self.geometry("358x200+600+250")
-        elif cont == LoginPage:
-            self.geometry("358x100+600+300")
+  
 
 def setRasponDay():
     global raspon
@@ -624,54 +615,8 @@ class PageThree(tk.Frame):
         nazadBut.place(x=3, y=175)
         tick()        
             
-
-class LoginPage(tk.Frame):
-    global ime
-    global sifra
-    sifra = StringVar()
-    ime = StringVar()
-
-    
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent, background='#424D59')
         
-        def loging_check():
-            global ime
-            global sifra
-            global stanje_menija
-            pasword = 'admin'
-            username = 'admin'
-            print(pasword)
-            print(ime.get())
-            print(sifra.get())
-            if sifra.get() == pasword and ime.get() == username:
-                stanje_menija = 'normal'
-                controller.show_frame(PageOne)
                 
-                
-            else:
-                messagebox.showinfo("Greska", "Sifra ili korisnicko ime nisu tacni!\nPokusajte ponovo!")
-                
-        user_name = tk.Label(self, text = "Korisnicko ime", font=LARGE_FONT, anchor="e", width=16,
-                             foreground="#FA8E4B", background="#424D59")
-        user_name.place(x=20, y=10)
-        password = tk.Label(self, text = "Password",width=16, font=LARGE_FONT, anchor="e",
-                            foreground="#FA8E4B", background="#424D59")
-        password.place(x=20, y=32)
-        user_entry = tk.Entry(self, textvariable=ime, font=LARGE_FONT, foreground="#FA8E4B", background="#424D59")
-        pass_entry = tk.Entry(self, textvariable=sifra, show='*', font=LARGE_FONT, foreground="#FA8E4B", background="#424D59")
-        user_entry.place(x=170, y=10)
-        pass_entry.place(x=170, y=32)
-        login = tk.Button(self, text="Uloguj se", command=loging_check, font=LARGE_FONT, foreground="#FA8E4B", background="#424D59")
-        login.place(x=170, y=65)
-
-    def stanje():
-        global stanje_menija
-        stanje_menija = 'disabled'
-        
-            
-
-    
 
 
         
